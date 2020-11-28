@@ -22,13 +22,13 @@ public class DateEntry {
   private String date;
   
   @OneToMany(mappedBy="date", fetch = FetchType.EAGER)
-  private Set<Video> videos;
+  private Set<Video> videos = new HashSet();
   
   @OneToMany(mappedBy="date", fetch = FetchType.EAGER)
-  private Set<Title> titles;
+  private Set<Title> titles = new HashSet();
   
   @OneToMany(mappedBy="date", fetch = FetchType.EAGER)
-  private Set<Person> people;
+  private Set<Person> people = new HashSet();
 
   public DateEntry(String date) {
     this.date = date;

@@ -71,4 +71,6 @@ public class Title {
     this.date = date;
   }
   
+  public void incViews() { this.views++; }  
+  
 }
