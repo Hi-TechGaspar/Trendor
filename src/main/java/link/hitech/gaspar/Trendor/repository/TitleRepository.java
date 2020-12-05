@@ -8,5 +8,7 @@ import org.springframework.data.repository.CrudRepository;
  * 
  * @author Hi-Tech Gaspar
  */
-public interface TitleRepository extends CrudRepository<Title, String> {  
+public interface TitleRepository extends CrudRepository<Title, String>,
+                                          AbstractBaseEntityRepository<Title> {  
+
 }

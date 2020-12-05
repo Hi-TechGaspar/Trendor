@@ -8,5 +8,6 @@ import org.springframework.data.repository.CrudRepository;
  * 
  * @author Hi-Tech Gaspar
  */
-public interface VideoRepository extends CrudRepository<Video, String> {  
+public interface VideoRepository extends CrudRepository<Video, String>,
+                                          AbstractBaseEntityRepository<Video> {  
 }

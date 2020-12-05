@@ -3,6 +3,7 @@ package link.hitech.gaspar.Trendor.entity;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import link.hitech.gaspar.Trendor.exception.TrendorException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -56,6 +57,27 @@ public class DateEntry {
     }
     this.people.add(p);
     p.setDate(this);
+  }
+  
+  public Set<? extends BaseEntity> getTrendingEntities(String entityType) {
+    if ("person".equals(entityType)) {
+      if (this.people == null) {
+        this.people = new HashSet();
+      }
+      return this.people;      
+    } else if ("title".equals(entityType)) {
+      if (this.titles == null) {
+        this.titles = new HashSet();
+      }
+      return this.titles;
+    } else if ("video".equals(entityType)){
+      if (this.videos == null) {
+        this.videos = new HashSet();
+      }
+      return this.videos;
+    } else {
+      throw new TrendorException("Bad entity type: " + entityType);
+    }
   }
   
 }

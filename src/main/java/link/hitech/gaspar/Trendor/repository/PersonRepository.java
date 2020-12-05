@@ -8,5 +8,6 @@ import org.springframework.data.repository.CrudRepository;
  * 
  * @author Hi-Tech Gaspar
  */
-public interface PersonRepository extends CrudRepository<Person, String> {  
+public interface PersonRepository extends CrudRepository<Person, String>,
+                                          AbstractBaseEntityRepository<Person> {  
 }
