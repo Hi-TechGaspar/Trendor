@@ -41,13 +41,14 @@ public class EventService {
    * @param entityType Type of the entity to fetch
    * @param slug Slug of the entity
    * @param eventType Type of the event (vote up, vote down, ...)
+   * @return Returns updated today's DateEntry
    */
-  public void newEvent(String entityType, String slug, String eventType) {
+  public DateEntry newEvent(String entityType, String slug, String eventType) {
     DateEntry today = this.getToday();
     BaseEntity entity = this.getEntity(today, entityType, slug);
     this.addEvent(entity, eventType);
     saveBaseEntity(entity);
-    this.dr.save(today);
+    return this.dr.save(today);
   }
   
   /**

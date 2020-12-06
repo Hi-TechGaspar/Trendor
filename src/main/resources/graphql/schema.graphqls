@@ -1,0 +1,47 @@
+type Person {
+    id: ID!
+    slug: String!
+    views: Int!
+    votesUp: Int!
+    votesDown: Int!
+    favorites: Int!
+    comments: Int!
+    addExternalLink: Int!
+}
+
+type Title {
+    id: ID!
+    slug: String!
+    views: Int!
+    votesUp: Int!
+    votesDown: Int!
+    favorites: Int!
+    comments: Int!
+    addExternalLink: Int!
+}
+
+type Video {
+    id: ID!
+    slug: String!
+    views: Int!
+    votesUp: Int!
+    votesDown: Int!
+    favorites: Int!
+    comments: Int!
+    addExternalLink: Int!
+}
+
+type DateEntry {
+    date: ID!
+    titles: [Title]
+    people: [Person]
+    videos: [Video]
+}
+
+type Query {
+    findAllDateEntries: [DateEntry]!
+}
+
+type Mutation {
+    titleEvent(slug: String!, eventType: String!) : Title
+}
