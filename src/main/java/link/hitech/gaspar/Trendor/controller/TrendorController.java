@@ -1,5 +1,6 @@
 package link.hitech.gaspar.Trendor.controller;
 
+import io.micrometer.core.annotation.Timed;
 import javax.servlet.http.HttpServletRequest;
 import link.hitech.gaspar.Trendor.repository.DateEntryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class TrendorController {
   @Autowired
   DateEntryRepository dr;
   
+  @Timed(value = "trendor.events.page.loading.time", description = "Time spent loading the events pages")
   @RequestMapping(value = "/events", method = RequestMethod.GET)
   public String titles(HttpServletRequest request, Model model) {  
     model.addAttribute("events", this.dr.findAll());
