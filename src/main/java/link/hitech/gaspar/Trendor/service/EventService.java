@@ -15,7 +15,7 @@ import link.hitech.gaspar.Trendor.repository.TitleRepository;
 import link.hitech.gaspar.Trendor.repository.VideoRepository;
 
 /**
- * Repository for Video entities.
+ * Service layer for events.
  * 
  * @author Hi-Tech Gaspar
  */
@@ -112,23 +112,23 @@ public class EventService {
     }
     
     if (eventType.equals("votesUp")) {
-      entity.incViews();
+      entity.incVotesUp();
     }
     
     if (eventType.equals("votesDown")) {
-      entity.incViews();
+      entity.incVotesDown();
     }
     
     if (eventType.equals("favorites")) {
-      entity.incViews();
+      entity.incFavorites();
     }
     
     if (eventType.equals("comments")) {
-      entity.incViews();
+      entity.incComments();
     }
     
     if (eventType.equals("addExternalLink")) {
-      entity.incViews();
+      entity.incAddExternalLink();
     }
     
     return entity;
